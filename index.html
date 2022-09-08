@@ -1,4 +1,22 @@
-<form method="POST" action="https://script.google.com/a/macros/whatfix.com/s/AKfycbzDDR8lh6fnnmPk4XDL5x6P5_9Y95oZtM-8XHeA7zPSDNyE9oAQ8SaAucOsMc9uZ-9yMw/exec">
+<script>
+window.addEventListener("load", function() {
+  const form = document.getElementById('my-form');
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const action = e.target.action;
+    fetch(action, {
+      method: 'POST',
+      body: data,
+    })
+    .then(() => {
+      alert("Success!");
+    })
+  });
+});
+
+</script>
+<form method="POST" id="my-form" action="https://script.google.com/a/macros/whatfix.com/s/AKfycbzDDR8lh6fnnmPk4XDL5x6P5_9Y95oZtM-8XHeA7zPSDNyE9oAQ8SaAucOsMc9uZ-9yMw/exec">
   <input name="Email" type="email" placeholder="Email" required>
   <input name="Name" type="text" placeholder="Name" required>
   <button type="submit">Send</button>
